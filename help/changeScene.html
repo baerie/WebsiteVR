@@ -1,0 +1,70 @@
+<!-- CODE FÜR DAS WECHSELN DER SZENE-->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Experience Virtual Reality</title>
+        <meta name="description" content="VR">
+        <script src="./js/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene auto-enter-vr>
+            <a-assets>
+                <img id="panorama" src="assets/panorama-background.jpg">
+                <img id="panorama-demo" src="assets/panorama.png">
+                <img id="mozvr-demo" src="assets/mozvr.png">
+                <img id="video-demo" src="assets/video.png">
+                <img id="lyrics-demo" src="assets/lyrics.png">
+            </a-assets>
+
+            <a-entity>
+                <a-entity camera look-controls wasd-controls>
+                    <a-entity position="0 0 -3" scale="0.2 0.2 0.2" geometry="primitive: ring; radiusOuter: 0.20; radiusInner: 0.13;" material="color: #ADD8E6; shader: flat" cursor="maxDistance: 30; fuse: true">
+                        <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+                        <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.2 0.2 0.2" dur="1500"></a-animation>
+                    </a-entity>
+                </a-entity>
+            </a-entity>
+
+            <a-curvedimage id="vr" src="#mozvr-demo" transparent="true" 
+              height="2" radius="3" theta-length="40" rotation="0 240 0" position="0 0 -2">
+            </a-curvedimage>
+
+            <a-curvedimage id="pana" src="#panorama-demo" transparent="true" 
+              height="2" radius="3" theta-length="40" rotation="0 190 0" position="0 0 -2">
+            </a-curvedimage>
+            
+            <a-curvedimage id="lyrics" src="#lyrics-demo" transparent="true" 
+              height="2" radius="3" theta-length="40" rotation="0  130 0" position="0 0 -2">
+            </a-curvedimage>
+            
+            <a-curvedimage id="video" src="#video-demo" transparent="true" 
+              height="2" radius="3" theta-length="40" rotation="0  80 0" position="0 0 -2">
+            </a-curvedimage>
+
+          <a-light type="directional" color="#fff" intensity="0.2" position="-1 2 1"></a-light>
+          <a-light type="ambient" color="#fff"></a-light>
+          <a-sky color="rgb(200,200,200)" opacity="0.5"></a-sky>
+        </a-scene>
+        <script>
+            AFRAME.registerComponent('auto-enter-vr', {
+             init: function () {
+              this.el.sceneEl.enterVR();
+             }
+            });
+            
+            document.querySelector("#pana").addEventListener('click', function() {
+                window.location.href = "demos/panorama/index.html";
+            });
+            document.querySelector("#lyrics").addEventListener('click', function() {
+                window.location.href = "demos/lyricsVR/index.html";
+            });
+            document.querySelector("#vr").addEventListener('click', function() {
+                window.location.href = "demos/rubiks/index.html";
+            });
+            document.querySelector("#video").addEventListener('click', function() {
+                window.location.href = "demos/video/index.html";
+            });
+        </script>
+    </body>
+</html>
