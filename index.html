@@ -12,14 +12,6 @@
         <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
         <script src="js/visibilityToggle.js"></script>
 
-        <!--
-        <script src="js/aframe/aframe.min.js"></script>
-        <script src="js/aframe/jquery.min.js"></script>
-        <script src="js/aframe/aframe-animation-component.min.js"></script>
-        <script src="js/aframe/aframe-mouse-cursor-component.min.js"></script>
-        <script src="js/visibilityToggle.js"></script>
-        -->
-
         <!-- STYLE -->
         <style type="text/css">
 
@@ -91,9 +83,8 @@
             <!-- COMPONENTS & STYLESHEETS -->
             <a-entity>
 
-                <!-- SITE ELEMENTS -->
+                <!-- POSITIONS -->
                 <a-entity>
-
                     <!-- CAPTION POSITION -->
                     <a-mixin id="bodyCaption"
                              position="0 12 -25"
@@ -102,59 +93,76 @@
 
                     <!-- TEXT POSITION -->
                     <a-mixin id="bodyText"
-                        position="0 1.5 -25.25"
-                        visible="false">
+                             position="0 1.5 -25.25"
+                             visible="false">
                     </a-mixin>
 
                     <!-- BILDER POSITION -->
                     <a-mixin id="bodyBilder"
-                        position="-20 2.5 -25"
-                        rotation="0 15 0">
+                             position="-20 2.5 -25"
+                             rotation="0 15 0">
                     </a-mixin>
 
                     <!-- VIDEO POSITION -->
                     <a-mixin id="bodyVideo"
-                        position="0 2.5 -28"
-                        rotation="0 0 0">
+                             position="0 2.5 -28"
+                             rotation="0 0 0">
                     </a-mixin>
 
                 </a-entity>
 
-                <a-mixin id="hideTextButton"
-                         material="color: red"
-                         geometry="height: 0.5;
-                                   width: 0.5;
-                                   depth: 0.5"
-                         position="0 -2 1">
-                </a-mixin>
+                <!-- PAGE SWITCHER -->
+                <a-entity>
 
-                <!-- MORE INFO -->
-                <a-mixin id="moreInfo"
-                         text="align: center; width: 25; color: white; wrap-count:60;
-                             value: MEHR"
-                         position="0 0 .2">
-                </a-mixin>
+                    <!-- PAGE 1/2 -->
+                    <a-mixin id="page1"
+                             text="align: center; width: 25; color: white; wrap-count:60;
+                         value: 1/2"
+                             position="0 0 .2">
+                    </a-mixin>
 
-                <!-- LESS INFO -->
-                <a-mixin id="lessInfo"
-                         text="align: center; width: 25; color: white; wrap-count:60;
-                             value: WENIGER"
-                         position="0 0 .2"
-                         visible="false">
-                </a-mixin>
+                    <!-- PAGE 2/2 -->
+                    <a-mixin id="page2"
+                             text="align: center; width: 25; color: white; wrap-count:60;
+                         value: 2/2"
+                             position="0 0 .2">
+                    </a-mixin>
 
-                <!-- PAGE INDICATOR -->
-                <a-mixin id="hideTextPlane"
-                         material="
-                            color: red;
-                            transparent: true"
-                         geometry="
-                            width:3.5;
-                            height:1.5"
-                         position="0 -2 0.1"
-                         rotation="0 0 0">
+                    <!-- PAGE INDICATOR -->
+                    <a-mixin id="pageIndicator"
+                             material="
+                        color: rgb(0,0,0);
+                        transparent: true;
+                        opacity:0.5"
+                             geometry="
+                        width:2.5;
+                        height:1.5"
+                             position="0 -5 1">
 
-                </a-mixin>
+                    </a-mixin>
+
+                    <!-- PAGE SWITCH ACTIVE -->
+                    <a-mixin id="pageSwitchA"
+                             material="
+                            color: white;"
+                             geometry="
+                            height:0.5;
+                            width: 0.5;
+                            depth: 0.5">
+
+                    </a-mixin>
+
+                    <!-- PAGE SWITCH INACTIVE -->
+                    <a-mixin id="pageSwitchInA"
+                             material="
+                            color: grey;"
+                             geometry="
+                            height:0.5;
+                            width: 0.5;
+                            depth: 0.5">
+
+                    </a-mixin>
+                </a-entity>
 
                 <!-- VIDEOPLAYER ELEMENTS -->
                 <a-entity>
@@ -167,91 +175,39 @@
 
                     <a-mixin id="videoControlls"
                              geometry="
-                                height: 0.5;
-                                width: 0.5">
+                            height: 1;
+                            width: 1">
                     </a-mixin>
 
                     <!-- PROGRESS BAR SETUP -->
                     <a-mixin id="progressBarSetup"
                              geometry=  "primitive: plane;
-                                        width: 4;
-                                        height: 0.06;"
+                                    width: 4;
+                                    height: 0.5;"
                              material=  "transparent: true;
-                                        visible:false;
-                                        opacity: 0;">
+                                    visible:false;
+                                    opacity: 0;">
                     </a-mixin>
 
                     <!-- PROGRESS BAR TRACK -->
                     <a-mixin id="progressBarTrack"
-                            geometry=   "width: 4;
-                                         height: 0.06;"
-                            material=   "opacity: 0.5;
-                                         color: black;"
-                            position=   "0 0 0.005">
+                             geometry=   "width: 4;
+                                     height: 0.5;"
+                             material=   "opacity: 0.5;
+                                     color: black;"
+                             position=   "0 0 0.005">
                     </a-mixin>
 
                     <!-- PROGRESS BAR FILL -->
                     <a-mixin id="progressBarFill"
-                            geometry=   "width: 0;
-                                        height: 0.06;"
-                            material=   "color: #7198e5;"
-                            position=   "-2 0 0.01">
+                             geometry=   "width: 0;
+                                    height: 0.5;"
+                             material=   "color: #7198e5;"
+                             position=   "-2 0 0.01">
                     </a-mixin>
 
                 </a-entity>
 
-                <!-- PAGE SWITCHER -->
-                <a-entity>
-
-                    <!-- PAGE 1/2 -->
-                    <a-mixin id="page1"
-                             text="align: center; width: 25; color: white; wrap-count:60;
-                             value: 1/2"
-                             position="0 0 .2">
-                    </a-mixin>
-
-                    <!-- PAGE 2/2 -->
-                    <a-mixin id="page2"
-                             text="align: center; width: 25; color: white; wrap-count:60;
-                             value: 2/2"
-                             position="0 0 .2">
-                    </a-mixin>
-
-                    <!-- PAGE INDICATOR -->
-                    <a-mixin id="pageIndicator"
-                            material="
-                            color: rgb(0,0,0);
-                            transparent: true;
-                            opacity:0.5"
-                            geometry="
-                            width:2.5;
-                            height:1.5"
-                            position="0 -5 1">
-
-                    </a-mixin>
-
-                    <!-- PAGE SWITCH ACTIVE -->
-                    <a-mixin id="pageSwitchA"
-                             material="
-                                color: white;"
-                             geometry="
-                                height:0.5;
-                                width: 0.5;
-                                depth: 0.5">
-
-                    </a-mixin>
-
-                    <!-- PAGE SWITCH INACTIVE -->
-                    <a-mixin id="pageSwitchInA"
-                             material="
-                                color: grey;"
-                             geometry="
-                                height:0.5;
-                                width: 0.5;
-                                depth: 0.5">
-
-                    </a-mixin>
-                </a-entity>
 
                 <!-- BACKGROUNDS / PLANES -->
                 <a-entity>
@@ -260,39 +216,53 @@
                     <a-mixin
                             id="captionPlane"
                             material="
-                             color:rgb(0,0,0);
-                             transparent:true;
-                             opacity:0.6;
-                             side: double"
+                         color:rgb(0,0,0);
+                         transparent:true;
+                         opacity:0.6;
+                         side: double"
                             geometry="
-                             width:32;
-                             height:3">
+                         width:32;
+                         height:4">
                     </a-mixin>
 
                     <!-- TEXT PLANE -->
                     <a-mixin
                             id="textPlane"
                             material="
-                            color:rgb(0,0,0);
-                            transparent: true;
-                            opacity:0.6;
-                            side: double;"
+                        color:rgb(0,0,0);
+                        transparent: true;
+                        opacity:0.6;
+                        side: double;"
                             geometry="
-                            width:32;
-                            height:15">
+                        width:32;
+                        height:15">
                     </a-mixin>
 
                     <!-- GALLERY PLANE -->
                     <a-mixin
                             id="galleryPlane"
                             material="
-                            color:rgb(0,0,0);
-                            transparent: true;
-                            opacity:0.5;
-                            side: double;"
+                        color:rgb(0,0,0);
+                        transparent: true;
+                        opacity:0.5;
+                        side: double;"
                             geometry="
-                            width:4.25;
-                            height:14.5">
+                        width:4.25;
+                        height:14.5">
+                    </a-mixin>
+
+                    <!-- INFO PLANE -->
+                    <a-mixin id="hideTextPlane"
+                             material="
+                            color: #ffa382;
+                            transparent: true
+                            opacity: 0.8"
+                             geometry="
+                            width:2.5;
+                            height:1.25"
+                             position="0 -2 0.1"
+                             rotation="2.5 0 0">
+
                     </a-mixin>
 
                 </a-entity>
@@ -302,8 +272,8 @@
 
                     <a-mixin id="galleryThumb"
                              geometry="
-                                height: 3;
-                                width: 4">
+                            height: 3;
+                            width: 4">
                     </a-mixin>
 
                     <!-- THUMBS POSITION -->
@@ -321,6 +291,15 @@
 
 
                 </a-entity>
+
+
+                <a-mixin id="hideTextButton"
+                         material="color: red"
+                         geometry="height: 0.5;
+                                   width: 0.5;
+                                   depth: 0.5"
+                         position="0 -2 1">
+                </a-mixin>
 
 
             </a-entity>
@@ -361,16 +340,16 @@
                         <!-- INTRO -->
                         <a-mixin id="springIntro"
                                  text="align: center; width: 30; wrap-count:60;
-                                 value: Der Frühling (auch Frühjahr oder Lenz) ist eine der vier Jahreszeiten. In den gemäßigten Zonen ist er die Zeit der erwachenden und sprießenden Natur."
+                                 value: Der Fruehling (auch Fruehjahr oder Lenz) ist eine der vier Jahreszeiten. In den gemaessigten Zonen ist er die Zeit der erwachenden und spriessenden Natur."
                                  position="0 0 0.5"
                                  material="side: double">
                         </a-mixin>
                         <!-- TEXT 1 -->
                         <a-mixin id="springText1"
                                  text="align: center; width: 30; wrap-count:60;
-                                 value: Je nachdem, ob der Frühling auf der Nordhalbkugel oder der Südhalbkugel herrscht, wird zwischen Nordfrühling respektive Südfrühling unterschieden. Infolge des veränderlichen Sonnenstandes zwischen südlichem und nördlichem Wendekreis wiederholt sich der Frühling in jeder Hemisphäre in einem jährlichen Turnus. Der Frühling der einen Hemisphäre fällt immer mit dem Herbst der anderen zusammen.
+                                 value: Je nachdem, ob der Fruehling auf der Nordhalbkugel oder der Suedhalbkugel herrscht, wird zwischen Nordfruehling respektive Suedfruehling unterschieden. Infolge des veraenderlichen Sonnenstandes zwischen suedlichem und noerdlichem Wendekreis wiederholt sich der Fruehling in jeder Hemisphaere in einem jaehrlichen Turnus. Der Fruehling der einen Hemisphaere faellt immer mit dem Herbst der anderen zusammen.
                                     \n
-                                    Astronomisch beginnt der Frühling auf der Nordhalbkugel mit der Tag-und-Nacht-Gleiche am 19. oder 20. März (auf der Südhalbkugel entsprechend am 22. oder 23. September), meteorologisch und biologisch wird er meist auf Anfang März angesetzt. "
+                                    Astronomisch beginnt der Fruehling auf der Nordhalbkugel mit der Tag-und-Nacht-Gleiche am 19. oder 20. Maerz (auf der Suedhalbkugel entsprechend am 22. oder 23. September), meteorologisch und biologisch wird er meist auf Anfang Maerz angesetzt. "
 
                                  position="0 1.5 1"
                                  material="side: double">
@@ -378,10 +357,10 @@
                         <!-- TEXT 2 -->
                         <a-mixin id="springText2"
                                  text="align: center; width: 30; wrap-count:60;
-                                 value: Mit dem astronomischen Sommerbeginn zur Sommersonnenwende am 21. Juni endet der Frühling gegenwärtig immer am gleichen Tag.
-Phänologisch beginnt der Frühling mit dem ersten Blühen regional unterschiedlicher Pflanzenarten.
+                                 value: Mit dem astronomischen Sommerbeginn zur Sommersonnenwende am 21. Juni endet der Fruehling gegenwaertig immer am gleichen Tag.
+Phaenologisch beginnt der Fruehling mit dem ersten Bluehen regional unterschiedlicher Pflanzenarten.
 \n
-Auf der Nordhalbkugel tritt dies für gewöhnlich in den Monaten März, April und Mai ein, auf der Südhalbkugel dagegen im September, Oktober und November. In Mitteleuropa beginnt demnach der Vorfrühling bereits mit den ersten Blüten der Schneeglöckchen, der Vollfrühling ist aber erst mit dem Blühbeginn der Apfelbäume erreicht."
+Auf der Nordhalbkugel tritt dies fuer gewoehnlich in den Monaten Maerz, April und Mai ein, auf der Suedhalbkugel dagegen im September, Oktober und November. In Mitteleuropa beginnt demnach der Vorfruehling bereits mit den ersten Blueten der Schneegloeckchen, der Vollfruehling ist aber erst mit dem Bluehbeginn der Apfelbaeume erreicht."
                                  position="0 1.5 1"
                                  material="side: double">
                         </a-mixin>
@@ -407,7 +386,7 @@ Auf der Nordhalbkugel tritt dies für gewöhnlich in den Monaten März, April un
                                  text="align: center; width: 30; wrap-count:60;
                                  value: Je nachdem, ob er gerade auf der Nord- oder Suedhalbkugel herrscht, spricht man vom Nord- oder Suedsommer. Der Nordsommer findet gleichzeitig mit dem Suedwinter statt.
                             \n
-                                 Die Jahreszeiten entstehen, weil die Erdrotation nicht in der Ebene der Umlaufbahn um die Sonne erfolgt, sondern um 23,4° geneigt (siehe Ekliptikschiefe). Dadurch liegen Nord- und Suedpol abwechselnd ein halbes Jahr im streifenden Sonnenlicht, und der Zenitstand der Sonne wechselt im Jahreszyklus zwischen nördlichem und suedlichem Wendekreis."
+                                 Die Jahreszeiten entstehen, weil die Erdrotation nicht in der Ebene der Umlaufbahn um die Sonne erfolgt, sondern um 23,4° geneigt (siehe Ekliptikschiefe). Dadurch liegen Nord- und Suedpol abwechselnd ein halbes Jahr im streifenden Sonnenlicht, und der Zenitstand der Sonne wechselt im Jahreszyklus zwischen noerdlichem und suedlichem Wendekreis."
 
                                  position="0 1.5 1"
                                  material="side: double">
@@ -417,7 +396,7 @@ Auf der Nordhalbkugel tritt dies für gewöhnlich in den Monaten März, April un
                                  text="align: center; width: 30; wrap-count:60;
                                  value: Astronomisch beginnt der Sommer mit der Sommersonnenwende – dem Zeitpunkt, zu dem die Sonne senkrecht ueber dem Wendekreis der eigenen Erdhaelfte steht und die Tage am laengsten sind.
                             \n
-                                 Der Sommerbeginn ist auf der Nordhalbkugel am 20., 21. oder 22. Juni, bzw. auf der Suedhalbkugel am 21. oder 22. Dezember. Danach werden die Tage wieder kuerzer und die Naechte laenger. Der Nordsommer endet mit der herbstlichen Tagundnachtgleiche am 22. oder 23. September und der Suedsommer am 20. oder 21. März."
+                                 Der Sommerbeginn ist auf der Nordhalbkugel am 20., 21. oder 22. Juni, bzw. auf der Suedhalbkugel am 21. oder 22. Dezember. Danach werden die Tage wieder kuerzer und die Naechte laenger. Der Nordsommer endet mit der herbstlichen Tagundnachtgleiche am 22. oder 23. September und der Suedsommer am 20. oder 21. Maerz."
 
                                  position="0 1.5 1"
                                  material="side: double">
@@ -444,17 +423,17 @@ Auf der Nordhalbkugel tritt dies für gewöhnlich in den Monaten März, April un
                         <!-- TEXT 1 -->
                         <a-mixin id="autumnText1"
                                  text="align: center; width: 30; wrap-count:60;
-                                 value: In den gemäßigten Zonen ist er die Zeit der Ernte und des Blätterfalls. Im Herbst der Nordhalbkugel bewegt sich die Sonne scheinbar vom Himmelsäquator zum südlichen Wendekreis.
+                                 value: In den gemaessigten Zonen ist er die Zeit der Ernte und des Blaetterfalls. Im Herbst der Nordhalbkugel bewegt sich die Sonne scheinbar vom Himmelsaequator zum suedlichen Wendekreis.
                                  \n
-Astronomisch beginnt der Herbst hier mit der Tag-und-Nacht-Gleiche am 22. oder 23. September, meteoro- und biologisch wird er meist auf Anfang September angesetzt. Für die Südhalbkugel ist der astronomische Beginn am 20./21. März. Der Herbst endet astronomisch am 21. oder 22. Dezember auf der Nordhalbkugel und am 21. Juni auf der Südhalbkugel (Wintersonnenwende)."
+Astronomisch beginnt der Herbst hier mit der Tag-und-Nacht-Gleiche am 22. oder 23. September, meteoro- und biologisch wird er meist auf Anfang September angesetzt. Fuer die Suedhalbkugel ist der astronomische Beginn am 20./21. Maerz. Der Herbst endet astronomisch am 21. oder 22. Dezember auf der Nordhalbkugel und am 21. Juni auf der Suedhalbkugel (Wintersonnenwende)."
                                  position="0 1.5 1"
                                  material="side: double">
                         </a-mixin>
                         <!-- TEXT 2 -->
                         <a-mixin id="autumnText2"
                                  text="align: center; width: 30; wrap-count:60;
-                                 value: Astronomisch beginnt er mit dem Herbst-Äquinoktium, (man spricht auch vom Equinox oder der Tag-und-Nacht-Gleiche):
-auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20. März oder in der Nacht zum 21. März, und endet mit der Wintersonnenwende (21. oder 22. Dezember auf der Nordhalbkugel, bzw. am 21. Juni im Süden) Da die Umlaufbahn der Erde um die Sonne um 1,7 Prozent von einer Kreisbahn abweicht, sind die vier Jahreszeiten nicht ganz gleich lang. Dies wirkt sich auch etwas auf den phänologischen Herbstbeginn aus, der klimatisch vom astronomischen abweichen kann. Unterschieden wird hierbei auch zwischen dem Frühherbst, Vollherbst und Spätherbst."
+                                 value: Astronomisch beginnt er mit dem Herbst-aequinoktium, (man spricht auch vom Equinox oder der Tag-und-Nacht-Gleiche):
+auf der Nordhemisphaere am 22. oder 23. September, auf der Suedhemisphaere am 20. Maerz oder in der Nacht zum 21. Maerz, und endet mit der Wintersonnenwende (21. oder 22. Dezember auf der Nordhalbkugel, bzw. am 21. Juni im Sueden) Da die Umlaufbahn der Erde um die Sonne um 1,7 Prozent von einer Kreisbahn abweicht, sind die vier Jahreszeiten nicht ganz gleich lang. Dies wirkt sich auch etwas auf den phaenologischen Herbstbeginn aus, der klimatisch vom astronomischen abweichen kann. Unterschieden wird hierbei auch zwischen dem Fruehherbst, Vollherbst und Spaetherbst."
                                  position="0 1.5 1"
                                  material="side: double">
                         </a-mixin>
@@ -471,27 +450,43 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
                         <!-- INTRO -->
                         <a-mixin id="winterIntro"
                                  text="align: center; width: 30; wrap-count:60;
-                                 value: Der Winter (v. althochdeutsch: wintar, eigentlich „glänzende (Zeit)“: nasse Jahreszeit[1] oder weiße Jahreszeit[2]) ist die kälteste der vier Jahreszeiten in den subtropischen, gemäßigten, subpolaren und arktischen Klimazonen der Erde."
+                                 value: Der Winter (v. althochdeutsch: wintar, eigentlich „glaenzende (Zeit)“) ist die kaelteste der vier Jahreszeiten in den subtropischen, gemaessigten, subpolaren und arktischen Klimazonen der Erde."
                                  position="0 0 0.5"
                                  material="side: double">
                         </a-mixin>
                         <!-- TEXT 1 -->
                         <a-mixin id="winterText1"
                                  text="align: center; width: 30; wrap-count:60;
-                                 value: Astronomisch beginnt er mit dem Herbst-Äquinoktium, (man spricht auch vom Equinox oder der Tag-und-Nacht-Gleiche):
+                                 value: Astronomisch beginnt er mit dem Herbst-aequinoktium, (man spricht auch vom Equinox oder der Tag-und-Nacht-Gleiche):
                                  \n
-auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20. März oder in der Nacht zum 21. März, und endet mit der Wintersonnenwende (21. oder 22. Dezember auf der Nordhalbkugel, bzw. am 21. Juni im Süden)."
+auf der Nordhemisphaere am 22. oder 23. September, auf der Suedhemisphaere am 20. Maerz oder in der Nacht zum 21. Maerz, und endet mit der Wintersonnenwende (21. oder 22. Dezember auf der Nordhalbkugel, bzw. am 21. Juni im Sueden)."
                                  position="0 1.5 1"
                                  material="side: double">
                         </a-mixin>
                         <!-- TEXT 2 -->
                         <a-mixin id="winterText2"
                                  text="align: center; width: 30; wrap-count:60;
-                                 value: Da die Umlaufbahn der Erde um die Sonne um 1,7 Prozent von einer Kreisbahn abweicht, sind die vier Jahreszeiten nicht ganz gleich lang. Dies wirkt sich auch etwas auf den phänologischen Herbstbeginn aus, der klimatisch vom astronomischen abweichen kann. Unterschieden wird hierbei auch zwischen dem Frühherbst, Vollherbst und Spätherbst."
+                                 value: Da die Umlaufbahn der Erde um die Sonne um 1,7 Prozent von einer Kreisbahn abweicht, sind die vier Jahreszeiten nicht ganz gleich lang. Dies wirkt sich auch etwas auf den phaenologischen Herbstbeginn aus, der klimatisch vom astronomischen abweichen kann. Unterschieden wird hierbei auch zwischen dem Fruehherbst, Vollherbst und Spaetherbst."
                                  position="0 1.5 1"
                                  material="side: double">
                         </a-mixin>
                     </a-entity>
+
+                    <!-- MORE INFO -->
+                    <a-mixin id="moreInfo"
+                             text="align: center; width: 3.5; color: black; wrap-count:7;
+                         value: mehr"
+                             position="0 0 .2">
+                    </a-mixin>
+
+                    <!-- LESS INFO -->
+                    <a-mixin id="lessInfo"
+                             text="align: center; width: 4; color: black; wrap-count:8;
+                         value: weniger"
+                             position="0 0 .2"
+                             visible="false">
+                    </a-mixin>
+
                 </a-entity>
 
                 <!-- IMAGE URL -->
@@ -528,30 +523,6 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
 
         <!-- //////////////////////////////////// CONTENT ///////////////////////////////////////////////////////// -->
 
-        <!-- NAVBAR
-        <a-entity id="navbar">
-
-
-            <a-entity>
-                <a-box id="springMenu" color="white"  scale=".5 .5 .5" position="-3 0 -5" rotation="0 0 0"></a-box>
-            </a-entity>
-
-
-            <a-entity>
-                <a-box id="summerMenu" color="white"  scale=".5 .5 .5" position="-1 0 -5" rotation="0 0 0"></a-box>
-            </a-entity>
-
-
-            <a-entity>
-                <a-box id="autumnMenu" color="white"  scale=".5 .5 .5" position="1 0 -5" rotation="0 0 0"></a-box>
-            </a-entity>
-
-
-            <a-entity>
-                <a-box id="winterMenu" color="white"  scale=".5 .5 .5" position="3 0 -5" rotation="0 0 0"></a-box>
-            </a-entity>
-
-        </a-entity> -->
 
         <!-- SPRING -->
         <a-entity id="springContent">
@@ -570,10 +541,10 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
                     <!-- INTRO -->
                     <a-text mixin="springIntro"></a-text>
 
-                    <!-- BUTTON FÜR TEXT -->
-                    <a-plane mixin="hideTextPlane" class="clickable" toggle-visibility="#springTextBlock, #moreInfos, #lessInfos">
-                        <a-text mixin="moreInfo" id="moreInfos"></a-text>
-                        <a-text mixin="lessInfo" id="lessInfos"></a-text>
+                    <!-- BUTTON FueR TEXT -->
+                    <a-plane mixin="hideTextPlane" class="clickable" toggle-visibility="#springTextBlock, #moreInfosSp, #lessInfosSp">
+                        <a-text mixin="moreInfo" id="moreInfosSp"></a-text>
+                        <a-text mixin="lessInfo" id="lessInfosSp"></a-text>
                     </a-plane>
 
                 </a-entity>
@@ -590,21 +561,21 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
 
                     <!-- PAGE INDICATOR -->
                     <a-plane mixin="pageIndicator">
-                        <a-text mixin="page1" class="pageSwitcher" ></a-text>
-                        <a-text mixin="page2" class="pageSwitcher" visible="false"></a-text>
+                        <a-text mixin="page1" class="pageSwitcherSpring" ></a-text>
+                        <a-text mixin="page2" class="pageSwitcherSpring" visible="false"></a-text>
                     </a-plane>
 
                     <!-- PAGESWITCH BUTTON INACTIVE -->
                     <a-entity>
-                        <a-box mixin="pageSwitchInA" class="pageSwitcher" position="-5 -5 0.5"></a-box>
-                        <a-box mixin="pageSwitchInA" class="pageSwitcher" position="5 -5 0.5" visible="false"></a-box>
+                        <a-box mixin="pageSwitchInA" class="pageSwitcherSpring" position="-5 -5 0.5"></a-box>
+                        <a-box mixin="pageSwitchInA" class="pageSwitcherSpring" position="5 -5 0.5" visible="false"></a-box>
                     </a-entity>
 
 
                     <!-- PAGESWITCH BUTTONS ACTIVE -->
                     <a-entity class="clickable">
-                        <a-box mixin="pageSwitchA" class="pageSwitcher"  toggle-visibility=".springText, .pageSwitcher"  position="-5 -5 1"  visible="false"></a-box>
-                        <a-box mixin="pageSwitchA" class="pageSwitcher" toggle-visibility=".springText, .pageSwitcher"  position="5 -5 1" ></a-box>
+                        <a-box mixin="pageSwitchA" class="pageSwitcherSpring"  toggle-visibility=".springText, .pageSwitcherSpring"  position="-5 -5 1"  visible="false"></a-box>
+                        <a-box mixin="pageSwitchA" class="pageSwitcherSpring" toggle-visibility=".springText, .pageSwitcherSpring"  position="5 -5 1" ></a-box>
                     </a-entity>
 
                 </a-entity>
@@ -618,34 +589,6 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
                     <a-image mixin="galleryThumb thumberTwo" id="springThumb2" src="#springPic2"></a-image>
                     <a-image mixin="galleryThumb thumberThree" id="springThumb3" src="#springPic3"></a-image>
                 </a-plane>
-            </a-entity>
-
-            <!-- VIDEOPLAYER -->
-            <a-entity mixin="bodyVideo">
-
-                <!-- VIDEO CAPTION -->
-                <a-text mixin="videoCaption"></a-text>
-
-                <!-- MEDIAS HOLDER -->
-                <a-sound id="alert-sound" src="src: url(assets/action.wav)" autoplay="false" position="0 0 0"></a-sound>
-                <a-video id="video-screen" src="#video-src"  width="16" height="9"></a-video>
-                <!-- END MEDIAS HOLDER -->
-
-                <!-- CONTROLS -->
-                <a-entity position="0 -5.5 0">
-                    <a-image mixin="videoControlls" id="control-back" src="#seek-back" position="-2.5 0 0"  visible="false"></a-image>
-                    <a-box color="red" mixin="videoControlls" id="control-play" src="#play" position="0 0 0" ></a-box>
-                    <a-image mixin="videoControlls" id="control-volume" src="#volume-normal" position="2.5 0 0"  visible="false"></a-image>
-                </a-entity>
-                <!-- END CONTROLS -->
-
-                <!-- PROGRESSBAR -->
-                <a-entity mixin="progressBarSetup" id="progress-bar" position="0 -5 0">
-                    <a-plane mixin="progressBarTrack" id="progress-bar-track" visible="false"></a-plane>
-                    <a-plane mixin="progressBarFill" id="progress-bar-fill"   visible="false"></a-plane>
-                </a-entity>
-                <!-- END PROGRESSBAR -->
-
             </a-entity>
 
         </a-entity>
@@ -667,10 +610,10 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
                     <!-- INTRO -->
                     <a-text mixin="summerIntro"></a-text>
 
-                    <!-- BUTTON FÜR TEXT -->
-                    <a-plane mixin="hideTextPlane" class="clickable" toggle-visibility="#summerTextBlock, #moreInfos, #lessInfos">
-                        <a-text mixin="moreInfo" id="moreInfos"></a-text>
-                        <a-text mixin="lessInfo" id="lessInfos"></a-text>
+                    <!-- BUTTON FueR TEXT -->
+                    <a-plane mixin="hideTextPlane" class="clickable" toggle-visibility="#summerTextBlock, #moreInfosSu, #lessInfosSu">
+                        <a-text mixin="moreInfo" id="moreInfosSu"></a-text>
+                        <a-text mixin="lessInfo" id="lessInfosSu"></a-text>
                     </a-plane>
 
                 </a-entity>
@@ -687,21 +630,21 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
 
                     <!-- PAGE INDICATOR -->
                     <a-plane mixin="pageIndicator">
-                        <a-text mixin="page1" class="pageSwitcher" ></a-text>
-                        <a-text mixin="page2" class="pageSwitcher" visible="false"></a-text>
+                        <a-text mixin="page1" class="pageSwitcherSummer" ></a-text>
+                        <a-text mixin="page2" class="pageSwitcherSummer" visible="false"></a-text>
                     </a-plane>
 
                     <!-- PAGESWITCH BUTTON INACTIVE -->
                     <a-entity>
-                        <a-box mixin="pageSwitchInA" class="pageSwitcher" position="-5 -5 0.5"></a-box>
-                        <a-box mixin="pageSwitchInA" class="pageSwitcher" position="5 -5 0.5" visible="false"></a-box>
+                        <a-box mixin="pageSwitchInA" class="pageSwitcherSummer" position="-5 -5 0.5"></a-box>
+                        <a-box mixin="pageSwitchInA" class="pageSwitcherSummer" position="5 -5 0.5" visible="false"></a-box>
                     </a-entity>
 
 
                     <!-- PAGESWITCH BUTTONS ACTIVE -->
                     <a-entity class="clickable">
-                        <a-box mixin="pageSwitchA" class="pageSwitcher"  toggle-visibility=".summerText, .pageSwitcher"  position="-5 -5 1"  visible="false"></a-box>
-                        <a-box mixin="pageSwitchA" class="pageSwitcher" toggle-visibility=".summerText, .pageSwitcher"  position="5 -5 1" ></a-box>
+                        <a-box mixin="pageSwitchA" class="pageSwitcherSummer"  toggle-visibility=".summerText, .pageSwitcherSummer"  position="-5 -5 1"  visible="false"></a-box>
+                        <a-box mixin="pageSwitchA" class="pageSwitcherSummer" toggle-visibility=".summerText, .pageSwitcherSummer"  position="5 -5 1" ></a-box>
                     </a-entity>
 
                 </a-entity>
@@ -715,6 +658,34 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
                     <a-image mixin="galleryThumb thumberTwo" id="summerThumb2" src="#summerPic2"></a-image>
                     <a-image mixin="galleryThumb thumberThree" id="summerThumb3" src="#summerPic3"></a-image>
                 </a-plane>
+            </a-entity>
+
+            <!-- VIDEOPLAYER -->
+            <a-entity mixin="bodyVideo">
+
+                <!-- VIDEO CAPTION -->
+                <a-text mixin="videoCaption"></a-text>
+
+                <!-- MEDIAS HOLDER -->
+                <a-sound id="alert-sound" src="src: url(assets/action.wav)" autoplay="false" position="0 0 0"></a-sound>
+                <a-video id="video-screen" src="#video-src"  width="16" height="9"></a-video>
+                <!-- END MEDIAS HOLDER -->
+
+                <!-- CONTROLS -->
+                <a-entity position="0 -5.5 0">
+                    <a-image mixin="videoControlls" id="control-back" src="#seek-back" position="-3.5 -1 0"  visible="false"></a-image>
+                    <a-box color="grey" mixin="videoControlls" id="control-play" src="#play" position="0 -1 0" ></a-box>
+                    <a-image mixin="videoControlls" id="control-volume" src="#volume-normal" position="3.5 -1 0"  visible="false"></a-image>
+                </a-entity>
+                <!-- END CONTROLS -->
+
+                <!-- PROGRESSBAR -->
+                <a-entity mixin="progressBarSetup" id="progress-bar" position="0 -5 0">
+                    <a-plane mixin="progressBarTrack" id="progress-bar-track" visible="false"></a-plane>
+                    <a-plane mixin="progressBarFill" id="progress-bar-fill"   visible="false"></a-plane>
+                </a-entity>
+                <!-- END PROGRESSBAR -->
+
             </a-entity>
 
         </a-entity>
@@ -736,10 +707,10 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
                     <!-- INTRO -->
                     <a-text mixin="autumnIntro"></a-text>
 
-                    <!-- BUTTON FÜR TEXT -->
-                    <a-plane mixin="hideTextPlane" class="clickable" toggle-visibility="#autumnTextBlock, #moreInfos, #lessInfos">
-                        <a-text mixin="moreInfo" id="moreInfos"></a-text>
-                        <a-text mixin="lessInfo" id="lessInfos"></a-text>
+                    <!-- BUTTON FueR TEXT -->
+                    <a-plane mixin="hideTextPlane" class="clickable" toggle-visibility="#autumnTextBlock, #moreInfosA, #lessInfosA">
+                        <a-text mixin="moreInfo" id="moreInfosA"></a-text>
+                        <a-text mixin="lessInfo" id="lessInfosA"></a-text>
                     </a-plane>
 
                 </a-entity>
@@ -756,21 +727,21 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
 
                     <!-- PAGE INDICATOR -->
                     <a-plane mixin="pageIndicator">
-                        <a-text mixin="page1" class="pageSwitcher" ></a-text>
-                        <a-text mixin="page2" class="pageSwitcher" visible="false"></a-text>
+                        <a-text mixin="page1" class="pageSwitcherAutumn" ></a-text>
+                        <a-text mixin="page2" class="pageSwitcherAutumn" visible="false"></a-text>
                     </a-plane>
 
                     <!-- PAGESWITCH BUTTON INACTIVE -->
                     <a-entity>
-                        <a-box mixin="pageSwitchInA" class="pageSwitcher" position="-5 -5 0.5"></a-box>
-                        <a-box mixin="pageSwitchInA" class="pageSwitcher" position="5 -5 0.5" visible="false"></a-box>
+                        <a-box mixin="pageSwitchInA" class="pageSwitcherAutumn" position="-5 -5 0.5"></a-box>
+                        <a-box mixin="pageSwitchInA" class="pageSwitcherAutumn" position="5 -5 0.5" visible="false"></a-box>
                     </a-entity>
 
 
                     <!-- PAGESWITCH BUTTONS ACTIVE -->
                     <a-entity class="clickable">
-                        <a-box mixin="pageSwitchA" class="pageSwitcher"  toggle-visibility=".autumnText, .pageSwitcher"  position="-5 -5 1"  visible="false"></a-box>
-                        <a-box mixin="pageSwitchA" class="pageSwitcher" toggle-visibility=".autumnText, .pageSwitcher"  position="5 -5 1" ></a-box>
+                        <a-box mixin="pageSwitchA" class="pageSwitcherAutumn"  toggle-visibility=".autumnText, .pageSwitcherAutumn"  position="-5 -5 1"  visible="false"></a-box>
+                        <a-box mixin="pageSwitchA" class="pageSwitcherAutumn" toggle-visibility=".autumnText, .pageSwitcherAutumn"  position="5 -5 1" ></a-box>
                     </a-entity>
 
                 </a-entity>
@@ -805,10 +776,10 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
                     <!-- INTRO -->
                     <a-text mixin="winterIntro"></a-text>
 
-                    <!-- BUTTON FÜR TEXT -->
-                    <a-plane mixin="hideTextPlane" class="clickable" toggle-visibility="#winterTextBlock, #moreInfos, #lessInfos">
-                        <a-text mixin="moreInfo" id="moreInfos"></a-text>
-                        <a-text mixin="lessInfo" id="lessInfos"></a-text>
+                    <!-- BUTTON FueR TEXT -->
+                    <a-plane mixin="hideTextPlane" class="clickable" toggle-visibility="#winterTextBlock, #moreInfosW, #lessInfosW">
+                        <a-text mixin="moreInfo" id="moreInfosW"></a-text>
+                        <a-text mixin="lessInfo" id="lessInfosW"></a-text>
                     </a-plane>
 
                 </a-entity>
@@ -825,21 +796,21 @@ auf der Nordhemisphäre am 22. oder 23. September, auf der Südhemisphäre am 20
 
                     <!-- PAGE INDICATOR -->
                     <a-plane mixin="pageIndicator">
-                        <a-text mixin="page1" class="pageSwitcher" ></a-text>
-                        <a-text mixin="page2" class="pageSwitcher" visible="false"></a-text>
+                        <a-text mixin="page1" class="pageSwitcherWinter" ></a-text>
+                        <a-text mixin="page2" class="pageSwitcherWinter" visible="false"></a-text>
                     </a-plane>
 
                     <!-- PAGESWITCH BUTTON INACTIVE -->
                     <a-entity>
-                        <a-box mixin="pageSwitchInA" class="pageSwitcher" position="-5 -5 0.5"></a-box>
-                        <a-box mixin="pageSwitchInA" class="pageSwitcher" position="5 -5 0.5" visible="false"></a-box>
+                        <a-box mixin="pageSwitchInA" class="pageSwitcherWinter" position="-5 -5 0.5"></a-box>
+                        <a-box mixin="pageSwitchInA" class="pageSwitcherWinter" position="5 -5 0.5" visible="false"></a-box>
                     </a-entity>
 
 
                     <!-- PAGESWITCH BUTTONS ACTIVE -->
                     <a-entity class="clickable">
-                        <a-box mixin="pageSwitchA" class="pageSwitcher"  toggle-visibility=".winterText, .pageSwitcher"  position="-5 -5 1"  visible="false"></a-box>
-                        <a-box mixin="pageSwitchA" class="pageSwitcher" toggle-visibility=".winterText, .pageSwitcher"  position="5 -5 1" ></a-box>
+                        <a-box mixin="pageSwitchA" class="pageSwitcherWinter"  toggle-visibility=".winterText, .pageSwitcherWinter"  position="-5 -5 1"  visible="false"></a-box>
+                        <a-box mixin="pageSwitchA" class="pageSwitcherWinter" toggle-visibility=".winterText, .pageSwitcherWinter"  position="5 -5 1" ></a-box>
                     </a-entity>
 
                 </a-entity>
